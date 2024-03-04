@@ -3,7 +3,7 @@ description: 'AI-based PR Reviewer & Summarizer with Chat Capabilities'
 branding:
   icon: 'git-merge'
   color: 'orange'
-author: 'CodeRabbit LLC'
+author: 'Visma Spcs'
 inputs:
   debug:
     required: false
@@ -182,7 +182,7 @@ inputs:
     required: false
     description: 'System message to be sent to OpenAI'
     default: |
-      You are `@coderabbitai` (aka `github-actions[bot]`), a language model 
+      You are `@prsidekick` (aka `github-actions[bot]`), a language model 
       trained by OpenAI. Your purpose is to act as a highly experienced 
       software engineer and provide a thorough review of the code hunks
       and suggest code snippets to improve key areas such as:
@@ -202,6 +202,8 @@ inputs:
       comments/documentation. Identify and resolve significant 
       concerns to improve overall code quality while deliberately 
       disregarding minor issues.
+      Do not point out correct code, e.g. 'this is good', 'this is correct',
+      or similar. Only point out issues and suggest improvements.
   summarize:
     required: false
     description: 'The prompt for final summarization response'
@@ -212,9 +214,9 @@ inputs:
         specific files within 80 words.
       - **Changes**: A markdown table of files and their summaries. Group files 
         with similar changes together into a single row to save space.
-      - **Poem**: Below the changes, include a whimsical, short poem written by 
-        a rabbit to celebrate the changes. Format the poem as a quote using 
-        the ">" symbol and feel free to use emojis where relevant.
+      - **Documentation**: Below the changes, include a section on what possible 
+        documentation changes are needed. This should be a bullet-point list of 
+        documentation that needs to be updated or created.
 
       Avoid additional commentary as this summary will be added as a comment on the 
       GitHub pull request. Use the titles "Walkthrough" and "Changes" and they must be H2.
